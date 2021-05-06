@@ -30,6 +30,10 @@
 	for(BuyerDTO d : buList) {
 	
 	}
+	
+	items="Controller에서 받은 list, 배열"
+	list를 전체 반복하면서 각각의 요소를 getter하여 var로 지정된 변수에 담기
+	EL tag를 사용하여 각각의 변수를 화면에 출력
 	 --%>
 	<c:forEach items="${BUYERS}" var="BUYER">
 		<p>${BUYER.bu_code},
