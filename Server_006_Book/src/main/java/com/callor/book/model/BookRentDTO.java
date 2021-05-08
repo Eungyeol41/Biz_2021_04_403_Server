@@ -29,7 +29,7 @@ public class BookRentDTO {
 
 	private Long br_seq = 0L;
 	private String br_bcode;
-	private String br_bname;
+	private String br_bname; 
 	private String br_tel;
 	private String br_isbn;
 	private String br_title;

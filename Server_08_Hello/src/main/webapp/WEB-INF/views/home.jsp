@@ -11,9 +11,9 @@
 	<nav>
 		<ul>
 			<li><a href="/hello">HOME</a></li>
-			<li><a href="/hello/menu?id=buyer">고객정보</li>
-			<li><a href="/hello/menu?id=product">상품정보</li>
-			<li><a href="/hello/menu?id=mypage">MY PAGE</li>
+			<li><a href="/hello/menu?id=buyer">고객정보</a></li>
+			<li><a href="/hello/menu?id=product">상품정보</a></li>
+			<li><a href="/hello/menu?id=mypage">MY PAGE</a></li>
 		</ul>
 	</nav>
 </body>
