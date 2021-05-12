@@ -70,11 +70,13 @@ public class BookRentController extends HttpServlet {
 				/*
 				 * ServletContext
 				 * Tomcat을 기반으로 작성된 Web APP Service에서 요청(Req), 응답(Res)를 총괄하는 정보가 담긴 객체
-				 * Web App Service를 구현하기 위하여 Req, Res를 처리하는 여러가지 기능을 구현해야 하는데 그러한 기능을 미리 구현해 놓았기 때문에 ServletContext를 getter하는 것만으로 충분하다
+				 * Web App Service를 구현하기 위하여 Req, Res를 처리하는 여러가지 기능을 구현해야 하는데 
+				 * 		그러한 기능을 미리 구현해 놓았기 때문에 ServletContext를 getter하는 것만으로 충분하다
 				 * 
 				 * DB 등으로부터 조회된 데이터를 wEB에게 응답하고자 할 때 쉬운 방법으로 전달할 수 있도록하는 기능이 미리 구현되어 있다
 				 */
 				ServletContext app = this.getServletContext();
+				
 				// bService가 return한 brDTO를 app 객체에 BOOK이라는 속성변수로 세팅하기
 				// app 객체에 BOOK이라는 객체변수를 생성하고 BOOK 변수에 brDTO 값을 저장한다
 				// BookRentDTO BOOK = brDTO 이런 형식의 코드가 실행된다
@@ -180,7 +182,7 @@ public class BookRentController extends HttpServlet {
 			String bk_isbn = req.getParameter("bk_isbn");
 			String bu_code = req.getParameter("bu_code");
 			
-			// 대여일자값을 생성하기 위하여 날짜클래스와 날짜포맷클래스를 사용하여 대이여리자 문자열 만들기
+			// 대여일자값을 생성하기 위하여 날짜클래스와 날짜포맷클래스를 사용하여 대여일자 문자열 만들기
 			
 			// 현재 컴퓨터 시스템 날짜 가져오기
 			Date date = new Date( System.currentTimeMillis() );

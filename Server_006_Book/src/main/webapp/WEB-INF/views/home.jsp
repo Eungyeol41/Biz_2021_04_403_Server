@@ -15,7 +15,6 @@
 		<P>
 			<a href="rent/seq?id=${BR.br_seq}">
 			${BR.br_seq}</a>
-			
 			${BR.br_bcode}
 			${BR.br_bname}
 			${BR.br_tel}
@@ -30,6 +29,5 @@
 		<input name="id">
 		<button>전송</button>
 	</form>
-	<p>
 </body>
 </html>
