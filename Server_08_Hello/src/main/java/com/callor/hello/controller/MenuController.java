@@ -13,10 +13,11 @@ public class MenuController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String rootPath = req.getContextPath();
 		String id = req.getParameter("id");
-		
 		resp.sendRedirect(rootPath + "/" + id);
+
 		/*
 		if(id.equals("buyer")) {
 			resp.sendRedirect(rootPath + "/buyer");

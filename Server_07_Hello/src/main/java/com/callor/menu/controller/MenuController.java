@@ -46,6 +46,7 @@ public class MenuController extends HttpServlet{
 			// 도서대여 처리
 			// out.println("도서대여처리");
 			resp.sendRedirect("/hello/rent/list");
+			
 		} else if(strId.equals("book")) {
 
 			// 도서정보 처리

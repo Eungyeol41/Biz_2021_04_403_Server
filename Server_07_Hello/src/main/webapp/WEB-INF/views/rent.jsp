@@ -8,8 +8,5 @@
 </head>
 <body>
 	<h1>도서대여 처리</h1>
-	<form action="">
-		<input name="">
-	</form>
 </body>
 </html>
