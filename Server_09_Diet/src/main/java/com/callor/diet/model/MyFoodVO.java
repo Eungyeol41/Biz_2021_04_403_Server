@@ -20,6 +20,6 @@ public class MyFoodVO {
 	private long mf_seq	; // number
 	private String mf_date; // varchar2(10 byte)
 	private String mf_fcode; // char(7 byte)
-	private long mf_amt; // number(10,2)
+	private Float mf_amt; // number(10,2)
 	
 }

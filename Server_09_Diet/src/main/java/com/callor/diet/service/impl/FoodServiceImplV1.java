@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.callor.diet.config.DBContract;
 import com.callor.diet.config.DBInfo;
 import com.callor.diet.model.FoodDTO;
 import com.callor.diet.model.FoodVO;
-import com.callor.diet.persistence.DBContract;
 import com.callor.diet.service.FoodService;
 
 public class FoodServiceImplV1 implements FoodService {
@@ -65,7 +65,24 @@ public class FoodServiceImplV1 implements FoodService {
 
 	@Override
 	public FoodDTO findById(String fd_code) {
-		// TODO Auto-generated method stub
+		// TODO 식품코드로 검색하기
+		
+		String sql = "SELECT * FROM view_식품정보";
+		sql += " WHERE 식품코드 = ? ";
+		
+		PreparedStatement pStr = null;
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, fd_code);
+			List<FoodDTO> foodList = this.select(pStr);
+			if(foodList != null && foodList.size() > 0) {
+				return foodList.get(0);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

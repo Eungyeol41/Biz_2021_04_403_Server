@@ -1,4 +1,4 @@
-package com.callor.diet.persistence;
+package com.callor.diet.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
