@@ -19,31 +19,31 @@ public class MyFoodServiceImplV1 implements MyFoodService{
 	
 	@Override
 	public List<MyFoodCDTO> selectAll() {
-		// TODO Auto-generated method stub
+		// TODO 전체 조회
 		return null;
 	}
 
 	@Override
 	public MyFoodCDTO findById(Long seq) {
-		// TODO Auto-generated method stub
+		// TODO Id로 찾기
 		return null;
 	}
 
 	@Override
 	public List<MyFoodCDTO> findByName(String mf_name) {
-		// TODO Auto-generated method stub
+		// TODO 식품명으로 찾기
 		return null;
 	}
 
 	@Override
 	public List<MyFoodCDTO> findByDate(String mf_date) {
-		// TODO Auto-generated method stub
+		// TODO 날짜로 찾기
 		return null;
 	}
 
 	@Override
 	public Integer insert(MyFoodVO myFoodVO) {
-		// TODO Auto-generated method stub
+		// TODO DB에 입력
 		String sql = " INSERT INTO tbl_myfoods( ";
 		sql += "mf_seq,";
 		sql += "mf_date,";
@@ -82,7 +82,7 @@ public class MyFoodServiceImplV1 implements MyFoodService{
 	}
 
 	@Override
-	public Integer delete(MyFoodVO myFoodVO) {
+	public Integer delete(Long seq) {
 		// TODO Auto-generated method stub
 		return null;
 	}

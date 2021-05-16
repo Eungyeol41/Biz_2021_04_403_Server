@@ -11,6 +11,11 @@
 <title>식품 정보 검색</title>
 <style>
 
+	/* 모든 tag에 적용하는 style */
+	* {
+		box-sizing: border-box;
+	}
+	
 	/*
 	tag에 padding을 설정하면 실제 width보다 더 커지는 현상이 발생한다
 	이러한 현상은 UI 화면을 눈에 거슬리게 하는 결과가 된다.
@@ -18,10 +23,6 @@
 	
 	이 설정을 style의 맨 상단에 설정하면 padding으로 인한 Layout의 흐트러짐을 막을 수 있다
 	*/
-	* {
-		box-sizing: border-box;
-	}
-
 	/* h1, form, table tag에 공통된 style 지정 */
 	h1, form, table {
 		width:80%;
@@ -29,65 +30,57 @@
 	}
 	
 	h1 {
-		background-color: rgba(0, 255, 0, 0.7);
-		padding: 1rem;
-		text-align: center;
-		color: white;
+		background-color: #A7E2DD;
+		padding : 40px 0px; 
+		align-content: center ;
+		text-align: center ;
+		color: yellow ;
 	}
 	
 	form {
-		border:1px solid green;
 		padding-left : 10px;
-		margin-top: 5px;
 	}
 	
 	table {
-		border: 1px solid green;
-		margin-top: 5px;
+		border-top : 1px solid #ccc;
 		border-collapse: collapse;
-	}
+	}	
 	
-	th, td {
-		border: 1px solid green;
-		padding: 5px;
-	}
-	
-	td {
-		color: blue;
+	th,td {	
+		padding : 15px 10px; 
+		border-top : 1px solid #ccc;
+		text-align: center
 	}
 	
 	tr:nth-child(odd) {
-		background-color: #ccc;
+		background-color: #eee;
 	}
 	
-	tr:nth-child(even) {
-		background-color: #eee;
+	input {	
+		width : 40%;
+		border : 0.5px solid #ccc;
+		border-radius : 5px ;
+		margin : 8px;
+		padding: 5px;
 	}
 	
 	/*
 		table의 어떤 row에 마우스가 올라가면 바탕색을 #aaa로 마우스 커서 모양을 손모양으로 바꾼다 
 	*/
 	tr:hover {
-		background-color: #aaa;
-		cursor: pointer;
-	}
-
-	input {
-		border: 1px solid green;
-		padding: 8px;
-		width : 60%;
-		border-radius: 10px;
+		background-color: #A7E2DD;
+		cursor: pointer; 
+		color:  #296cff;
 	}
 	
 	a {
-		text-decoration: none;
-		/*
-		스타일의 상속
-		a tag를 감싸고 있는(td) tag의 color가 변경되면 나도 따라 바뀌겠다
-		*/
-		color:inherit;
+		text-decoration: none ;
+		/*style의 상속*/
+		/* a태그를 감싸고 있는 태그(td)의 색이 바뀌면 같이 바뀐다. */
+		color : inherit ;
 	}
 	
+	body { font-family : "Noto Sans CJK KR Light", "돋움", dotum, arial,"굴림", gulim}
 </style>
 </head>
 <body>

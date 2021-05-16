@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 <style>
 	h1 {
-		background-color: rgba(0, 255, 0, 0.7);
-		color: white;
+		background-color: #3EADBB;
+		color : #fff ;
 		padding: 1.2rem;
 		text-align: center;
 	}
@@ -17,13 +17,16 @@
 		text-decoration: none;
 	}
 	
-	/* CSS 3를 사용한 interactive....  */
-	/* a tag에 마우스가 떠 있으면 */
+	/*
+	CSS 3를 사용한 interactive 스타일 지정
+	동적(Dynamic) 스타일 지정
+	*/
 	a:hover {
+		color: 	#FF4500;
+		background-color: #ddd ;
 		text-decoration: underline;
-		background-color: rgba(0, 0, 255, 0.3);
 	}
-
+	
 </style>
 </head>
 <body>

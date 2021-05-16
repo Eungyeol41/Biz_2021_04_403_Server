@@ -59,6 +59,8 @@ public class FoodController extends HttpServlet{
 			String today = sd.format(date);
 			
 			req.setAttribute("TODAY", today);
+			
+			ReqController.forward(req, resp, "insert");
 		
 		} else if(subPath.equals("/insert")) {
 			
@@ -106,6 +108,23 @@ public class FoodController extends HttpServlet{
 			
 			ReqController.forward(req, resp, "search");
 			
+		} else if(subPath.equals("/insert")) {
+			String strFcode = req.getParameter("mf_code");
+			String strDate= req.getParameter("mf_date");
+			String strAmt = req.getParameter("mf_amt");
+
+			MyFoodVO myFoodVO = new MyFoodVO();
+			myFoodVO.setMf_fcode(strFcode);
+			myFoodVO.setMf_date(strDate);
+			myFoodVO.setMf_amt(Float.valueOf(strAmt));
+
+			int result = mfService.insert(myFoodVO);
+			if(result > 0) {
+				System.out.println("입력 성공");
+				resp.sendRedirect("/diet/");
+			} else {
+				System.out.println("입력 실패");
+			}
 		}
 		
 	}
