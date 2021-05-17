@@ -132,7 +132,7 @@ public class MyFoodServiceImplV1 implements MyFoodService{
 		sql += "mf_date,";
 		sql += "mf_amt) ";
 		sql += " VALUES( ";
-		sql += "seq_myfoods.NEXTVAL";
+		sql += "seq_myfoods.NEXTVAL,";
 		sql += "?,";
 		sql += "?,";
 		sql += "?) ";
