@@ -25,7 +25,7 @@ import javax.servlet.annotation.WebFilter;
  *  그러한 절차를 미리 Filter에서 처리하고 login 여부에 따라 Controller로 전달할 지 안할 지를 판단하여 미리 한 번에 처리할 수 있다.
  */
 // urlPatterns = "/food/*"로 설정하면 localhost:8080/diet/food로 요청하는 부분만 처리
-@WebFilter(urlPatterns = "*")
+@WebFilter(urlPatterns = "/*")
 public class KoreaFilter implements Filter{
 
 	@Override

@@ -55,6 +55,7 @@ public class DBInfo {
 	
 	public static class 섭취정보계산 {
 		
+		public final static String mf_seq = "일련번호";
 		public static final String mf_date = "섭취일자";
 		public static final String mf_code = "식품코드";
 		public static final String mf_name = "식품명";

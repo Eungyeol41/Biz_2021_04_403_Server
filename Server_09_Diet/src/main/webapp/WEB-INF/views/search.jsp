@@ -30,11 +30,11 @@
 	}
 	
 	h1 {
-		background-color: #A7E2DD;
+		background-color: #3EADBB;
 		padding : 40px 0px; 
 		align-content: center ;
 		text-align: center ;
-		color: yellow ;
+		color: white;
 	}
 	
 	form {
@@ -131,7 +131,7 @@
 					<%-- forEach가 만든 FOOD(DTO)에서 각 변수값을 getter하여 화면에 보여라 --%>
 						<td>${FOOD.fd_code}</td>
 						<td>
-							<a href="${rootPath}/food/insert?fd_code=${FOOD.fd_name}">
+							<a href="${rootPath}/food/insert?fd_code=${FOOD.fd_code}">
 								${FOOD.fd_name}
 							</a>
 						</td>
