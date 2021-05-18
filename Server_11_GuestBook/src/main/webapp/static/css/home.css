@@ -1,0 +1,53 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1 {
+	background-color : #DDDDFF;
+	text-align: center;
+	/*
+	HTML, CSS에서의 단위 구조
+	dp, sp, pt, px : 절대값으로 단위 지정하기
+	
+	rem(
+	*/
+	padding: 1rem;
+}
+
+nav {
+	padding: 5px;
+}
+
+ul {
+	margin: 0px;
+	background-color: gainsboro;
+}
+
+li {
+	display : inline-block;
+	list-style : none;
+	margin: 0px;
+	padding: 10px;
+	color: white;
+}
+
+li:hover {
+	background-color: gold;
+	color:black;
+}
+
+table {
+	border-collapse: collapse;
+	width : 80%;
+	margin : 10px auto;
+}
+
+td, th {
+	border: 1px solid gainsboro;
+	padding : 5px;
+	text-align: center;
+}
+

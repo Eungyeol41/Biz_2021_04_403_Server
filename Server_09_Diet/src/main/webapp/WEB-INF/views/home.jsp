@@ -11,7 +11,7 @@
 	Chrome Browser의 캐시 때문에 css, jsp 등 외부 파일을 변경해도 적용이 안 되는 경우가 있다
 	?ver=숫자 값을 변경하면 Chrome Browser가 파일이 변경된 것으로 인식하여 새로고침을 해준다.
 --%>
-<link rel="stylesheet" href="${rootPath}/CSS/home.css?ver=1" />
+<link rel="stylesheet" href="/diet/CSS/home.css?ver=2021-05-18-001" />
 
 <!-- 외부의 CSS file 가져오기 -->
 <%-- 
