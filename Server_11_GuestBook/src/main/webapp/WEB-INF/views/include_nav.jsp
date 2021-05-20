@@ -40,6 +40,23 @@
 	}
 </style>
 
+<script>
+	/*
+		HTML 문서를 DOM(Document Object Model)이라고 한다
+		Tag로 둘러쌓인 모든 속성은 하나의 객체가 된다
+		
+		HTML 문서의 모든 객체의 시작점 객체는 document
+	*/
+	
+	document.addEventListner("DOMContentLoaded", function() {
+		document.querySelector("nav#main").addEventListener("click",function(ev) {
+			let text = ev.target.textContent;
+			alert(text + "가 클릭됨!!")
+		});
+	})
+	
+</script>
+
 <h1>방명록 2021</h1>
 <%-- 메뉴를 설정할 때 사용하는 tag --%>
 <%-- 
@@ -77,16 +94,4 @@
 	</ul>
 </nav>
 
-<script>
-	/*
-		HTML 문서를 DOM(Document Object Model)이라고 한다
-		Tag로 둘러쌓인 모든 속성은 하나의 객체가 된다
-		
-		HTML 문서의 모든 객체의 시작점 객체는 document
-	*/
-	
-	document.querySelector("nav#main").addEventListener("click",function(ev) {
-		let text = ev.target.textContent;
-		alert(text + "가 클릭됨!!")
-	});
-</script>
+
