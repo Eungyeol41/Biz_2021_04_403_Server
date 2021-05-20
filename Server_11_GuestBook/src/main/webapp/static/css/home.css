@@ -12,31 +12,12 @@ h1 {
 	HTML, CSS에서의 단위 구조
 	dp, sp, pt, px : 절대값으로 단위 지정하기
 	
-	rem(
+	rem(em) : 상대값으로 단위 지정하기
+	내부에 Text 포함된 tag의 경우
+	text 높이를 1rem(em)으로 설정하고, 
+	비율에 맞추어서 상대적으로 크기를 지정하기
 	*/
 	padding: 1rem;
-}
-
-nav {
-	padding: 5px;
-}
-
-ul {
-	margin: 0px;
-	background-color: gainsboro;
-}
-
-li {
-	display : inline-block;
-	list-style : none;
-	margin: 0px;
-	padding: 10px;
-	color: white;
-}
-
-li:hover {
-	background-color: gold;
-	color:black;
 }
 
 table {

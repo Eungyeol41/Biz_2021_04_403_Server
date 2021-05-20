@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${rootPath}/static/css/home.css?ver2021-05-18-001" rel="stylesheet" />
-<style>
+	<style>
 		div.view_btn {
 			width: 80%;
 			margin: 10px auto;
