@@ -11,9 +11,9 @@ public class DBContract {
 	static {
 		
 		String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-		String url = "jdbc:mysql://127.0.0.1:3306/todolist";
-		String username = "";
-		String password = "";
+		String url = "jdbc:mysql://127.0.0.1:3306/mydb";
+		String username = "gbUser";
+		String password = "12345";
 	
 		try {
 			Class.forName(jdbcDriver);
@@ -31,7 +31,8 @@ public class DBContract {
 		
 	}
 	
-	public static Connection getDBConnection() {
+	public static Connection getDbConn() {
 		return dbConn;
 	}
+
 }

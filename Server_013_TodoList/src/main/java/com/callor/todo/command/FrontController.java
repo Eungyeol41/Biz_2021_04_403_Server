@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.callor.todo.command.impl.HomeCommandImplV1;
+import com.callor.todo.command.impl.TodoCommandImplV1;
 
 @WebServlet("/")
 public class FrontController extends HttpServlet{
@@ -22,17 +23,28 @@ public class FrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		commands = new HashMap<String, TodoCommand>();
-		commands.put("/", new HomeCommandImplV1()); // home으로 요청하면 HomeCommandImplV1()에 대신 요청을 시키겠다...?
+		/*
+		 * 만약 http://localhost:8080/todo/로 요청이 오면 HomeCommandImplV1 객체를 사용하여 요청을 처리하기 위한 준비
+		 */
+		commands.put("/", new HomeCommandImplV1()); 
+		// 만약 http://localhost:8080/todo/insert로 요청이 오면 TodoCommandImplV1 객체를 사용하여 요청을 처리하기 위한 준비 
+		commands.put("/insert", new TodoCommandImplV1());
 	}
 	
 	// doGet(), doPost()로 분리하여 요청을 처리하던 방식을 한 개의 method에서 동시에 처리하기
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		
+		// Web에서 요청한 path 가져오기
 		String urlPath = req.getRequestURI();
 		String path = urlPath.substring(req.getContextPath().length());
 		
+		// req된 URI 중에서 실제 subPath 부분을 사용하여 처리할 객체를 Map으로부터 추출하기
 		TodoCommand subCommand = commands.get(path);
 		if(subCommand != null) {
+			// 각 Command 객체의 
 			subCommand.execute(req, resp);
 		}
 	}

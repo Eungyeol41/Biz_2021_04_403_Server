@@ -6,9 +6,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>My To Do List</title>
+<style>
+	/* style 지정을 위하여 전체 초기화 */
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	
+	h1, form.doit {
+		width: 50%;
+		margin: 10px auto;
+		border-radius: 5px;
+	}
+	
+	h1 {
+		background-color: rgba(0, 255, 0, 0.3);
+		color: white;
+		padding: 1rem;
+		text-align: center;
+		/* text에 그림자 지정 */
+		text-shadow: 1px 1px 1px #000;
+	}
+	
+	form.doit {
+		border: 1px solid green;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	form.doit input {
+		width: 90%;
+		/* input box 클릭하면 진한 box가 생기는 것을 방지 */
+		outline: 0;
+		border: 1px solid #eee;
+		border-radius: 5px;
+		padding: 15px;
+		margin: 10px;
+		font-weight: bold;
+	}
+	
+	form.doit input:hover {
+		background-color: #eee;
+	}
+	
+</style>
 </head>
 <body>
 	<h1>TO DO LIST</h1>
+	<div class="input">
+		<%--
+			form tag의 action 속성
+			
+			form tag의 action 속성은 form에 담긴 데이터를 submit할 때(서버로 전송할 때) 어떤 uri path를 통해서 서버에 보낼 것인가를 지정하는 것
+			
+			${rootPath}/ 처럼 주소를 지정하는 것
+			form, a tag 등에 URL, URI를 지정할 때 
+			
+			주소의 지정방식에 따라 상대주소, 절대주소 방법이 잇는 데 지정하는 방법에 따라 연결이 잘 안 되는 경우가 많다
+			
+			우리 프로젝트는 모두 절대주소 지정방식으로 통일한다
+			항상 주소(URI, URL)과 관련된 모든 항목은 ${rootPath} 시작하는 주소로 사용한다
+			rootPath = http://localhost:8080/todo/
+		 --%>
+		<form class="doit" method="POST" action="${rootPath}/insert">
+			<input name="td_doit" placeholder="할 일을 입력한 후 Enter~!">
+		</form>
+	</div>
 </body>
 </html>
