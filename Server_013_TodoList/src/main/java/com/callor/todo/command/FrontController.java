@@ -43,6 +43,7 @@ public class FrontController extends HttpServlet{
 		// 만약 http://localhost:8080/todo/insert로 요청이 오면 TodoCommandImplV1 객체를 사용하여 요청을 처리하기 위한 준비
 		// 		를 commands라는 Map에 저장을 해놓는다.
 		commands.put("/insert", new TodoCommandImplV1());
+		commands.put("/expire", new TodoCommandImplV1());
 	}
 	
 	// doGet(), doPost()로 분리하여 요청을 처리하던 방식을 한 개의 method에서 동시에 처리하기

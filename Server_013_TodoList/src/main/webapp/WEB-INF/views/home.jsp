@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>My To Do List</title>
 <style>
 	/* style 지정을 위하여 전체 초기화 */
@@ -60,6 +61,21 @@
 		padding: 7px;
 		border-top: 1px solid green;
 		cursor: pointer;
+		
+		/*
+			실험적인 CSS 적용하기
+			-user-select: none;은 text를 dblclick했을 때 선택박스가 나타나지 않도록 적용
+			그냥 -user-select: 기능이 적용되는 브라우저용
+			-webkit- : 크롬, 구글, 사파리
+			-moz- : 파이어폭스 계열 (주로 Linux 용)
+			-ms- : 익스플로러
+			-o- : 오페라
+		*/
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
 	}
 	
 	/* table의 마지막 라인(tr)에 포함된 td에만 적용 */
@@ -95,14 +111,57 @@
 		white-space: nowrap;
 	}
 	
+	.through-text {
+		text-decoration: 2px line-through red wavy;
+		
+	}
+
+	/* 화면폭이 480px 이하일 때 적용할 style */
+	@media screen and (max-width: 480px) {
+		h1, form.doit, table.td_list {
+			width: 95%;
+			margin:0 auto;
+		}
+	}
+	
+	/* 화면폭이 800px 이하일 때 적용할 style */
+	@media screen and (max-width: 800px) {
+		h1, form.doit, table.td_list {
+			width: 70%;
+			margin:0 auto;
+		}
+	}
+	
 </style>
+<script>
+	document.addEventListener("DOMContentLoaded",()=>{
+		document.querySelector("table.td_list").addEventListener("dblclick",(ev)=>{
+			
+			let tagName = ev.target.tagName
+			if(tagName == "TD") {
+				
+				// 클릭된 TD tag를 감싸고있는 TR객체(누구냐_)
+				let tr = ev.target.closest("TR").dataset
+				// let seq = ev.target.closest("TR").dataset.seq
+				let td_seq = tr.seq
+				let td_edate = tr.edate
+
+				let confirm_msg = td_edate ? "완료를 취소합니다!! " : "TODO를 완료했나요? ";
+				
+				if(confirm(confirm_msg)) {
+					location.href = "${rootPath}/expire?td_seq=" + td_seq
+				}
+			}
+		})
+	})
+</script>
 </head>
 <body>
 	<h1>TO DO LIST</h1>
 	<%--
 		form tag의 action 속성
 		
-		form tag의 action 속성은 form에 담긴 데이터를 submit할 때(서버로 전송할 때) 어떤 uri path를 통해서 서버에 보낼 것인가를 지정하는 것
+		form tag의 action 속성은 form에 담긴 데이터를 submit할 때(서버로 전송할 때) 어떤 URI path를 통해서 서버에 보낼 것인가를 지정하는 것
 		
 		${rootPath}/ 처럼 주소를 지정하는 것
 		form, a tag 등에 URL, URI를 지정할 때 
@@ -119,10 +178,10 @@
 	<div class="msg">${ERROR}${COMPLETE}</div>
 	<table class="td_list">
 		<c:forEach items="${TDLIST}" var="TD" varStatus="ST">
-			<tr>
+			<tr data-seq="${TD.td_seq}" data-edate="${TD.td_edate}">
 				<td class="count">${ST.count}</td>
 				<td class="sdate">${TD.td_sdate}<br>${TD.td_stime}</td>
-				<td class="doit">${TD.td_doit}</td>
+				<td class="doit ${empty TD.td_edate ? '' : 'through-text'}">${TD.td_doit}</td>
 				<td class="edate">${TD.td_edate}<br>${TD.td_etime}</td>
 			</tr>
 		</c:forEach>
