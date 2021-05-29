@@ -30,7 +30,6 @@ public class TodoCommandImplV1 implements TodoCommand {
 	private static final Logger log = LoggerFactory.getLogger("TODO");
 
 	private TodoService tdService;
-
 	public TodoCommandImplV1() {
 		tdService = new TodoServiceImplV1();
 	}
@@ -94,6 +93,7 @@ public class TodoCommandImplV1 implements TodoCommand {
 
 			// insert로부터 전달받은 숫자가 1 이상이면 정상 insert이고 그렇지 않으면 추가가 잘못된 것
 			Integer ret = tdService.insert(tdVO);
+			
 		} else if(path.equals("/expire")) {
 			
 			// 전달받은 seq에 해당하는 데이터 가져오기
@@ -113,11 +113,9 @@ public class TodoCommandImplV1 implements TodoCommand {
 				tdVO.put(DBInfo.td_edate, null);
 				tdVO.put(DBInfo.td_etime, null);
 			}
-		
-			tdService.update(tdVO);
+
 			log.debug("after set {}", tdVO.toString());
-			
-			
+			tdService.update(tdVO);
 			
 		}
 		

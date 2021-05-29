@@ -19,7 +19,9 @@ import com.callor.todo.service.TodoService;
 
 public class TodoServiceImplV1 implements TodoService{
 
+	// static으로 입력 시 생성자에 입력하지 않아도 상관 No.
 	protected static final Logger log = LoggerFactory.getLogger("TD Service");
+	
 	protected Connection dbConn;
 	public TodoServiceImplV1() {
 		dbConn = DBContract.getDbConn();
@@ -82,6 +84,7 @@ public class TodoServiceImplV1 implements TodoService{
 		PreparedStatement pStr = null;
 		try {
 			pStr = dbConn.prepareStatement(sql);
+			
 			ResultSet rSet = pStr.executeQuery();
 			
 			List<Map<String, Object>> tdList = this.select(rSet);
@@ -95,7 +98,7 @@ public class TodoServiceImplV1 implements TodoService{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} // end try-catch
 		
 		return null;
 	}
@@ -109,7 +112,9 @@ public class TodoServiceImplV1 implements TodoService{
 		
 		PreparedStatement pStr= null;
 		try {
+			
 			pStr = dbConn.prepareStatement(sql);
+			
 			pStr.setObject(1, seq);
 			ResultSet rSet = pStr.executeQuery();
 			
@@ -121,12 +126,13 @@ public class TodoServiceImplV1 implements TodoService{
 			
 			if(tdList != null && tdList.size() > 0) {
 				return tdList.get(0);
-			}
+			} // end if(tdList)
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} // end try-catch
+		
 		return null;
 	}
 
@@ -135,10 +141,9 @@ public class TodoServiceImplV1 implements TodoService{
 		
 		log.debug(vo.toString());
 		
-		// TODO Auto-generated method stub
+		// TODO 할 일 리스트 추가하기
 
-		String sql = " INSERT INTO tbl_todolist (";
-		sql += " td_sdate, td_stime, td_doit ) ";
+		String sql = " INSERT INTO tbl_todolist ( td_sdate, td_stime, td_doit ) ";
 		sql += " VALUES( ?, ?, ? )";
 		
 		log.debug("SQL {}", sql);
@@ -159,7 +164,7 @@ public class TodoServiceImplV1 implements TodoService{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} // end try-catch
 		
 		return null;
 	}
@@ -169,6 +174,8 @@ public class TodoServiceImplV1 implements TodoService{
 		// TODO Auto-generated method stub
 		
 		String sql = " UPDATE tbl_todolist SET ";
+		// sql += " td_sdate = ?, td_stime = ?, td_doit = ?, td_edate = ?, td_etime = ? ";
+		// sql += " WHERE td_seq = ? ";
 		sql += String.format(" %s = ?, ", DBInfo.td_sdate);
 		sql += String.format(" %s = ?, ", DBInfo.td_stime);
 		sql += String.format(" %s = ?, ", DBInfo.td_doit);
@@ -179,6 +186,7 @@ public class TodoServiceImplV1 implements TodoService{
 		PreparedStatement pStr = null;
 		try {
 			pStr = dbConn.prepareStatement(sql);
+			
 			pStr.setObject(1, vo.get(DBInfo.td_sdate));
 			pStr.setObject(2, vo.get(DBInfo.td_stime));
 			pStr.setObject(3, vo.get(DBInfo.td_doit));
@@ -193,7 +201,7 @@ public class TodoServiceImplV1 implements TodoService{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} // end try-catch
 		
 		return null;
 	}
@@ -204,6 +212,7 @@ public class TodoServiceImplV1 implements TodoService{
 		return null;
 	}
 
+	// 사용 안 할테니까 경고 Stop..
 	@SuppressWarnings("unused")
 	private void viewSelect(ResultSet rSet) throws SQLException {
 		
@@ -220,7 +229,7 @@ public class TodoServiceImplV1 implements TodoService{
 		System.out.println("=".repeat(50));
 		for(int i = 0; i < columns; i++) {
 			System.out.print(md.getColumnName(i + 1) + "\t");
-		}
+		} // end for(i)
 		System.out.println("\n" + "-".repeat(50));
 		
 		/*
@@ -235,11 +244,11 @@ public class TodoServiceImplV1 implements TodoService{
 			
 			for(int i = 0; i < columns; i++) {
 				System.out.print(rSet.getObject(i + 1) + "\t");
-			}
+			} // end for(i)
 			System.out.println();
 			
-		}
-		
+		} // end while(rSet.next())
+		System.out.println("=".repeat(50));
 	}
 	
 }
